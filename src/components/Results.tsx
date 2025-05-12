@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 interface Movie {
   id: number;
@@ -9,15 +9,15 @@ interface Movie {
 
 export default function Results({ results }: { results: Movie[] }) {
   if (!results || results.length === 0) {
-    return <div>No results found</div>
+    return <div>No results found</div>;
   }
   return (
     <div>
-            {results.map((result) => (
-              <div key={result.id}> 
-              {result.original_title || result.name || result.title} 
-              </div>
-            ))}
+      {results.map((result) => (
+        <div key={result.id}>
+          {result.original_title || result.name || result.title}
+        </div>
+      ))}
     </div>
-  )
+  );
 }
