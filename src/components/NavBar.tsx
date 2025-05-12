@@ -2,10 +2,13 @@ import NavBarItem from "./NavBarItem"
 
 export default function NavBar() {
   return (
-    <div className="flex dark:bg-gray-700 bg-amber-400 lg:text-lg p-4 justify-center gap-6">
-        <NavBarItem title = "Trending" param = "ferch" />
-        <NavBarItem title = "Top Rated" param = "ferchTopRated" />
-        
+    <div className=" w-full ">
+      <div className=" w-full bg-amber-500 dark:bg-gray-800 flex justify-center py-4"> 
+        <span className="flex justify-center items-center gap-8  font-bold ">
+        <NavBarItem title = "Trending" param = "fetch" />
+        <NavBarItem title = "Top Rated" param = "fetchTopRated" />
+        </span>
+        </div>
     </div>
   )
 }
