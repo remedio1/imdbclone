@@ -9,6 +9,12 @@ interface Movie {
   key : number;
   backdrop_path: string;
   poster_path: string;
+  overview: string;
+  release_date: string;
+  first_air_date: string;
+  vote_count: number;
+  rating: number;
+
 }
 
 export default function Results({ results }: { results: Movie[] }) {

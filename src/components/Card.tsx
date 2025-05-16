@@ -15,6 +15,7 @@ interface Movie {
   release_date: string;
   first_air_date: string;
   vote_count: number;
+  rating: number;
 }
 
 export default function Card({ result }: { result: Movie }) {
