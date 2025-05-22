@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { FiThumbsUp } from "react-icons/fi";
 
 export default async function MoviePage(props) {
   const movieId = props.params.id;
@@ -12,7 +13,7 @@ export default async function MoviePage(props) {
   const movie = await res.json();
   return (
     <div className="w-full">
-      <div className="p-4 md:pt-8 flex-col md:flex-row content-center max-w-6xl mx-auto md:space-x-6">
+      <div className="p-4 md:pt-8 flex-col md:flex-row content-center max-w-6xl mx-auto md:space-x-6 ">
         <div className="justify-between flex items-center">
           <div className="flex-1 ">
             <div className="md:flex-row md:items-center md:space-x-6">
@@ -46,9 +47,7 @@ export default async function MoviePage(props) {
               Popularity
               <div className="text-1xl font-bold text-gray-800 dark:text-white">
                 {movie.popularity?.toFixed(1)}
-                <span className="ml-1 text-gray-600 dark:text-gray-400 text-sm">
-                  /10
-                </span>
+                <span className="ml-1 text-gray-600 dark:text-gray-400 text-sm"></span>
               </div>
             </div>
           </div>
@@ -64,15 +63,24 @@ export default async function MoviePage(props) {
           className="rounded-lg flex"
         ></Image>
         <div className="p-2">
-          <p>{movie.overview}</p>
+          <p className="">
+            {movie.genres.map((genre) => genre.name).join(", ")}
+          </p>
+          <div className="border-t border-gray-200 opacity-50 my-2 max-w-197 "></div>
+          <p className="max-w-197 md:flex md:">{movie.overview}</p>
+          <div className="border-t border-gray-200 opacity-50 my-2 max-w-197"></div>
+          <p><span className="font-bold mr-1">Date Released:</span>{movie.release_date}</p>
+        <div className="border-t border-gray-200 opacity-50 my-2 max-w-197"></div>
 
-          <p>{movie.rating}</p>
-
-          <p>{movie.vote_count}</p>
+          <p className="flex items-center ">
+            <span className="font-bold mr-1">Vote Count:</span>
+            <FiThumbsUp className="" />
+            {movie.vote_count}
+          </p>
+          <div className="border-t border-gray-200 opacity-50 my-2 max-w-197"></div>
           <p>{movie.rated}</p>
 
-          <p>{movie.genres.map((genre) => genre.name).join(", ")}</p>
-          <p>
+          <p className="flex items-center max-w-197">
             {movie.production_companies
               .map((company) => company.name)
               .join(", ")}
