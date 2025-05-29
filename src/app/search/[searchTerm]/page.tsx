@@ -14,7 +14,7 @@ export default async function SearchPage({ params } : { params: { searchTerm: st
         {
         results && results.length === 0 ? (
             <h1 className='text-center pt-6'>
-                No results found for 
+                No results found for "{searchTerm}"
             </h1>
         ) : null
     }
